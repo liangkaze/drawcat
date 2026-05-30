@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Virtual env
+venv/
+.venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Claude Code
+.claude/
+
+# Test cache
+.pytest_cache/
+.mypy_cache/
+
+# Generated reports
+reports/*.html
+reports/*.json
+reports/*.txt
+
+# SQLite databases
+testbed/*.db
+
+# Config with secrets
+config.json
+
+# OS
+.DS_Store
+Thumbs.db
