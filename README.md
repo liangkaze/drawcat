@@ -9,15 +9,15 @@
 ## 快速开始
 
 ```bash
-# 1. 安装
-pip install -e ".[full]"
+# 1. 安装依赖
+pip install -r requirements.txt
 
 # 2. 扫描目标
-drawcat scan http://target.com
+python drawcat.py scan http://target.com
 
-# 3. (可选) 配置 AI 分析
-drawcat config
-drawcat scan http://target.com --ai
+# 3. (可选) AI 分析需要安装 anthropic
+pip install anthropic
+python drawcat.py scan http://target.com --ai
 ```
 
 ## 功能
@@ -61,43 +61,43 @@ drawcat scan http://target.com --ai
 
 ### 基础扫描
 ```bash
-drawcat scan http://example.com
+python drawcat.py scan http://example.com
 ```
 
 ### 深度扫描 + AI 报告
 ```bash
-drawcat scan http://example.com -dp 5 -pg 1000 --ai -o report.html
+python drawcat.py scan http://example.com -dp 5 -pg 1000 --ai -o report.html
 ```
 
 ### 带 Cookie 扫描
 ```bash
-drawcat scan http://example.com -c "PHPSESSID=xxx; security=low"
+python drawcat.py scan http://example.com -c "PHPSESSID=xxx; security=low"
 ```
 
 ### 带登录表单扫描
 ```bash
-drawcat scan http://example.com -u admin -p password -L /login.php
+python drawcat.py scan http://example.com -u admin -p password -L /login.php
 ```
 
 ### 指定种子 URL
 ```bash
-drawcat scan http://example.com --urls "/admin,/api/users?id=1,/search?q=test"
+python drawcat.py scan http://example.com --urls "/admin,/api/users?id=1,/search?q=test"
 ```
 
 ### 对比漏洞版 vs 安全版
 ```bash
-drawcat compare
+python drawcat.py compare
 ```
 
 ### 配置 AI 提供商
 ```bash
-drawcat config
+python drawcat.py config
 ```
 
 ### 启动测试台
 ```bash
-drawcat testbed               # 漏洞版 (port 5000)
-drawcat testbed --secure      # 安全版 (port 5001)
+python drawcat.py testbed               # 漏洞版 (port 5000)
+python drawcat.py testbed --secure      # 安全版 (port 5001)
 ```
 
 ## 参数速查
@@ -130,7 +130,7 @@ drawcat testbed --secure      # 安全版 (port 5001)
 配置方式（三选一）：
 
 ```bash
-drawcat config                                    # 交互式向导
+python drawcat.py config                           # 交互式向导
 export ANTHROPIC_API_KEY="sk-..."                 # 环境变量
 ```
 
